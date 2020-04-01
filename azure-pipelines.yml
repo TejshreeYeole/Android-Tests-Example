@@ -10,6 +10,7 @@ pool:
 
 stages:
 - stage : stage1
+  
   jobs:
   - job: firstJob
     timeoutInMinutes: 10
@@ -19,6 +20,7 @@ stages:
     - bash: echo "Hello world"
 
 - stage : stage2
+  dependsOn: []  
   jobs:
   - job : secondJob
     steps:
