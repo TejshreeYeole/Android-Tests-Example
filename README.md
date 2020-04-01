@@ -2,4 +2,3 @@
 ## Android Testing Example
 
 This project shows step by step how to set up Unit tests and Instrumentation tests on an Android Project
-Also used for testing ADO
