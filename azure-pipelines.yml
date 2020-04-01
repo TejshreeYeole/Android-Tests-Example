@@ -42,3 +42,6 @@ jobs:
 - job: seventhJob
   steps:
     - script: echo Hello World Seven
+- job: tommythJob
+  steps:
+    - script: echo Tommy was here
