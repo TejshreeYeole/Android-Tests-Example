@@ -31,10 +31,7 @@ jobs:
 - job: fourthJob
   steps:
     - script: echo Hello World Four
-- job: fifthJob
-  dependsOn: seventhJob
-  steps:
-    - script: echo Hello World Five
+
 - job: sixthJob
   steps:
     - script: echo Hello World Six
