@@ -38,9 +38,6 @@ jobs:
 - job: sixthJob
   steps:
     - script: echo Hello World Six
-- job: seventhJob
-  steps:
-    - script: echo Hello World Seven
 - job: tommythJob
   steps:
     - script: echo Tommy was here
