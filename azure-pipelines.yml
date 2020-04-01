@@ -10,7 +10,7 @@ pool:
   vmImage: 'macos-latest'
 
 jobs:
-- job: myJob
+- job: firstJob
   timeoutInMinutes: 10
   pool:
     vmImage: 'ubuntu-16.04'
@@ -26,3 +26,18 @@ jobs:
         publishJUnitResults: false
         testResultsFiles: '**/TEST-*.xml'
         tasks: 'assembleDebug'
+- job: thirdJob
+  steps:
+    - script: echo Hello World Three
+- job: fourthJob
+  steps:
+    - script: echo Hello World Four
+- job: fifthJob
+  steps:
+    - script: echo Hello World Five
+- job: sixthJob
+  steps:
+    - script: echo Hello World Six
+- job: seventhJob
+  steps:
+    - script: echo Hello World Seven
