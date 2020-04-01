@@ -8,33 +8,41 @@ trigger:
 pool:
   vmImage: 'macos-latest'
 
-jobs:
-- job: firstJob
-  timeoutInMinutes: 10
-  pool:
-    vmImage: 'ubuntu-16.04'
-  steps:
-  - bash: echo "Hello world"
-- job : secondJob
-  steps:
-    - task: Gradle@2
-      inputs:
-        workingDirectory: ''
-        gradleWrapperFile: 'gradlew'
-        gradleOptions: '-Xmx3072m'
-        publishJUnitResults: false
-        testResultsFiles: '**/TEST-*.xml'
-        tasks: 'assembleDebug'
-- job: thirdJob
-  steps:
-    - script: echo Hello World Three
-- job: fourthJob
-  steps:
-    - script: echo Hello World Four
+stages:
+- stage : stage1
+  jobs:
+  - job: firstJob
+    timeoutInMinutes: 10
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - bash: echo "Hello world"
 
-- job: sixthJob
-  steps:
-    - script: echo Hello World Six
-- job: tommythJob
-  steps:
-    - script: echo Tommy was here
+- stage : stage2
+  jobs:
+  - job : secondJob
+    steps:
+      - task: Gradle@2
+        inputs:
+          workingDirectory: ''
+          gradleWrapperFile: 'gradlew'
+          gradleOptions: '-Xmx3072m'
+          publishJUnitResults: false
+          testResultsFiles: '**/TEST-*.xml'
+          tasks: 'assembleDebug'
+  - job: thirdJob
+    steps:
+      - script: echo Hello World Three
+
+- stage : stage3
+  jobs:
+    - job: fourthJob
+      steps:
+      - script: echo Hello World Four
+
+    - job: sixthJob
+      steps:
+        - script: echo Hello World Six
+    - job: tommythJob
+      steps:
+        - script: echo Tommy was here
