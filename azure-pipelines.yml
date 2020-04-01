@@ -9,12 +9,19 @@ trigger:
 pool:
   vmImage: 'macos-latest'
 
-steps:
-- task: Gradle@2
-  inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'assembleDebug'
+jobs:
+- job: myJob
+  timeoutInMinutes: 10
+  pool:
+    vmImage: 'ubuntu-16.04'
+  steps:
+  - bash: echo "Hello world"
+  steps:
+    - task: Gradle@2
+      inputs:
+        workingDirectory: ''
+        gradleWrapperFile: 'gradlew'
+        gradleOptions: '-Xmx3072m'
+        publishJUnitResults: false
+        testResultsFiles: '**/TEST-*.xml'
+        tasks: 'assembleDebug'
