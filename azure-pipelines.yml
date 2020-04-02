@@ -10,6 +10,7 @@ pool:
 
 stages:
 - stage : stage1
+  displayName: BUILD App
   dependsOn: []  
   jobs:
   - job: firstJob
@@ -20,6 +21,7 @@ stages:
     - bash: echo "Hello world"
 
 - stage : stage2
+  displayName: TEST app
   dependsOn: []  
   jobs:
   - job : secondJob
@@ -37,6 +39,7 @@ stages:
       - script: echo Hello World Three
 
 - stage : stage3
+  displayName: DEPLOY
   dependsOn: []  
   jobs:
     - job: fourthJob
